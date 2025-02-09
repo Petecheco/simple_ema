@@ -1,6 +1,5 @@
 .idea
 data
 __pycache__
-assets
 *.pkl
 visualization.py

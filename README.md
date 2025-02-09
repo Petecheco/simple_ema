@@ -5,7 +5,7 @@ $$
 \theta_{t} = \beta\cdot \theta_{t-1} + (1-\beta)\cdot \theta_{t}
 $$
 
-NOTE. The version now only supports for the **parameter EMA**, if you register a buffer during the training, the **EMA can not update it in the current version**.
+NOTE. The version now only supports for the **parameter EMA**, if you register some buffer during the training, the **EMA can not update the buffer in its current version**.
 
 ## Usage:
 1. Create a PyTorch model

@@ -13,6 +13,9 @@ class EMAModel(nn.Module):
         for ema_param, raw_param in zip(self.ema_model.parameters(), model.parameters()):
             raw_param.to(ema_param.device)
             ema_param.copy_(self.beta * ema_param + (1 - self.beta) * raw_param)
+        for ema_buffer, raw_buffer in zip(self.ema_model.buffers(), model.buffers()):
+            raw_buffer.to(ema_buffer.device)
+            raw_buffer.copy_(ema_buffer.to(raw_buffer.device))
     def ema_inference(self, data) -> torch.Tensor:
         self.ema_model.eval()
         with torch.no_grad():
